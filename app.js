@@ -19,8 +19,8 @@ if (env === 'development') {
 }
 
 app.get('/', function(req, res) {
-    render('app');
-}));
+    res.render('app');
+});
 
 app.listen(port, function() {
     console.log('Listening on port', port);
