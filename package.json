@@ -1,0 +1,19 @@
+{
+  "name": "fixie",
+  "description": "Fixie project for #HackBikeShareTO",
+  "version": "0.0.1",
+  "homepage": "https://github.com/zeroviscosity/fixie",
+  "dependencies": {
+    "express": "^4.8.4",
+    "eyespect": "^0.1.10",
+    "jade": "^1.5.0",
+    "morgan": "^1.2.2"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.7",
+    "gulp-jshint": "^1.8.4",
+    "gulp-nodemon": "^1.0.4",
+    "gulp-sass": "^0.7.3",
+    "jshint-stylish": "^0.4.0"
+  }
+}
