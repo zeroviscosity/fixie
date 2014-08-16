@@ -7,7 +7,10 @@
         var service = {
             purpose: null,
             start: null,
-            end: null  
+            end: null,
+            geolocation: (funciton(n) {
+                return (n && n.geolocation) ? n.geolocaiton : null;
+            })($window.navigator)
         };
 
         return service;
