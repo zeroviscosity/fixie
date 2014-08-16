@@ -4,6 +4,7 @@
     "angular": "~1.2.22",
     "angular-route": "~1.2.22",
     "angular-touch": "~1.2.22",
-    "foundation": "~5.3.3"
+    "foundation": "~5.3.3",
+    "angular-animate": "~1.2.22"
   }
 }

@@ -1,13 +1,17 @@
 (function(window, angular) {
     'use strict';
 
-    var app = angular.module('app', ['ngRoute', 'ngTouch']);
+    var app = angular.module('app', ['ngAnimate', 'ngRoute', 'ngTouch']);
     
     app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
-        $routeProvider.when('/search', {
-            templateUrl: '/templates/search.html'
+        $routeProvider.when('/purpose', {
+            templateUrl: '/templates/purpose.html'
+        }).when('/sample', {
+            templateUrl: '/templates/sample.html'
+        }).when('/points', {
+            templateUrl: '/templates/points.html'
         }).otherwise({
-            redirectTo: '/search'
+            redirectTo: '/purpose'
         });
 
         $locationProvider.html5Mode(true).hashPrefix('!');

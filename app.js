@@ -20,7 +20,8 @@ if (env === 'development') {
 }
 
 app.get('/', angular.app);
-app.get('/search', angular.app);
+app.get('/points', angular.app);
+app.get('/purpose', angular.app);
 app.get('/templates/:template.html', angular.template);
 
 app.listen(port, function() {

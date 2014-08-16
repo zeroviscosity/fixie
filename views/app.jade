@@ -7,6 +7,8 @@ html(lang="en")
     link(rel="stylesheet", href="/css/normalize.css")
     link(rel="stylesheet", href="/css/main.css")
   body(data-ng-app="app")
+    header.shadow(data-ng-controller="HeaderCtrl as hdr")
+      a.logo(href="/") FIXIE
     div.view(data-ng-view)
     script(src="/js/angular.js")
     script(src="/js/app.js")

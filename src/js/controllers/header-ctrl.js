@@ -3,7 +3,7 @@
     
     var app = angular.module('app');
 
-    app.controller('SearchCtrl', function() {
+    app.controller('HeaderCtrl', function() {
     
     }); 
 })(window, window.angular);

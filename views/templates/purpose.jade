@@ -1,0 +1,14 @@
+div#purpose-ctrl(data-ng-controller="PurposeCtrl as purpose")
+  div.question-box-wrp
+    div.question-box.shadow
+      div.question-box-label Hi there! What's going on?
+      div.question-box-options
+        button.primary.expand(data-ng-click="purpose.set('errand')") I have an errand to run.
+        button.primary.expand(data-ng-click="purpose.set('fun')") I'm doing something fun.
+        button.primary.expand(data-ng-click="purpose.set('event')") I have an event to attend.
+      hr
+      ul.button-group.button-group-2
+        li
+          a.button.secondary(href="/sample") Sample Trip
+        li
+          a.button.secondary(href="/points") Skip
