@@ -1,5 +1,6 @@
 var express = require('express'),
     logger = require('morgan'),
+    angular = require('./controllers/angular'),
     app = express(),
     port = process.env.NODE_PORT || 3000,
     env = process.env.NODE_ENV || 'development';
@@ -18,17 +19,9 @@ if (env === 'development') {
     app.disable('verbose errors');
 }
 
-app.get('/', function(req, res) {
-    res.render('app');
-});
-
-app.get('/search', function(req, res) {
-    res.render('app');
-});
-
-app.get('/templates/:template.html', function(req, res) {
-    res.render('templates/' + req.params.template);
-});
+app.get('/', angular.app);
+app.get('/search', angular.app);
+app.get('/templates/:template.html', angular.template);
 
 app.listen(port, function() {
     console.log('Listening on port', port);
