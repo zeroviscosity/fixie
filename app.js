@@ -22,6 +22,14 @@ app.get('/', function(req, res) {
     res.render('app');
 });
 
+app.get('/search', function(req, res) {
+    res.render('app');
+});
+
+app.get('/templates/:template.html', function(req, res) {
+    res.render('templates/' + req.params.template);
+});
+
 app.listen(port, function() {
     console.log('Listening on port', port);
 });
