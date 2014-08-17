@@ -1,19 +1,35 @@
 .results {
   background: $body-bg;
   margin: rem-calc(30) auto;
+  overflow-x: auto;
   padding: rem-calc(20) rem-calc(30);
   position: relative;
-  width: 95%;
+  width: 96%;
   .row {
     max-width: none;
+    width: 960px;
   }
   .results-label {
+    font-size: rem-calc(28);
     text-align: center;
+  }
+  .results.time {
+    font-size: rem-calc(24);
+  }
+  iframe {
+    border: 0;
+    height: 400px;
+    margin: 2% auto;
+    width: 96%;
   }
 }
 
 @media #{$medium-up} {
   .results {
-    width: 95%;
+    margin: rem-calc(30) 140px;
+    width: auto;
+    .row {
+      width: auto;
+    }
   }
 }

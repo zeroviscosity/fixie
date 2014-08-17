@@ -8,17 +8,17 @@ div#details-ctrl(data-ng-controller="DetailsCtrl as details")
           span.prefix From:
         div.small-9.columns
           input#location-start.expand(type="text", name="start", 
-            placeholder="Start Point", data-ng-blur="startBlurred = true",
-            data-ng-model="details.trip.location.start", required)
-      div.animate(data-ng-show="detailsForm.start.$valid && startBlurred")
+            placeholder="Start Point", data-ng-blur="details.blurred.start = true",
+            data-ng-model="details.trip.location.start.address", required)
+      div.animate(data-ng-show="detailsForm.start.$valid && details.blurred.start")
         div.row.collapse
           div.small-3.columns
             span.prefix To:
           div.small-9.columns
             input#location-end.expand(type="text", name="end",
-              placeholder="End Point", data-ng-blur="endBlurred = true",
-              data-ng-model="details.trip.location.end", required)
-        div.animate(data-ng-show="detailsForm.end.$valid && endBlurred")  
+              placeholder="End Point", data-ng-blur="details.blurred.end = true",
+              data-ng-model="details.trip.location.end.address", required)
+        div.animate(data-ng-show="detailsForm.end.$valid && details.blurred.end")  
           div.row.collapse
             div.small-3.columns
               span.prefix Arrival:
@@ -59,4 +59,4 @@ div#details-ctrl(data-ng-controller="DetailsCtrl as details")
                 select(data-ng-model="details.trip.arrival.ampm")
                   option(value="am") am
                   option(value="pm") pm
-          input.button.primary.expand(type="submit", value="Compare Routes")
+          input.button.secondary.expand(type="submit", value="Compare Routes")

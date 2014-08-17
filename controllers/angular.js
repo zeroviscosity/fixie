@@ -1,8 +1,13 @@
 var _ = require('lodash'),
+    key = process.env.GOOGLE_MAPS_API_KEY,
     angular = {};
 
 angular.app = function(req, res) {
-    res.render('app');
+    res.render('app', {
+        maps: {
+            key: key
+        }
+    });
 };
 
 angular.template = function(req, res) {

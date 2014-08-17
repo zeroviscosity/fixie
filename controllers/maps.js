@@ -1,5 +1,4 @@
 var request = require('request'),
-    key = process.env.GOOGLE_MAPS_API_KEY,
     maps = {};
 
 maps.location = function(req, res) {
@@ -13,6 +12,7 @@ maps.location = function(req, res) {
         try {
             loc = JSON.parse(body);
         } catch(e) {
+            console.error(e);
             loc = {};
         }
         res.json(loc);

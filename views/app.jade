@@ -10,6 +10,7 @@ html(lang="en")
     header.shadow
       a.logo(href="/") FIXIE
     div.view(data-ng-view)
+    div#maps-key.hide=maps.key
     script(src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places")
     script(src="/js/libs.js")
     script(src="/js/app.js")

@@ -1,10 +1,21 @@
-div#results-ctrl(data-ng-controller="ResultsCtrl")
-  div.results.shadow
-    div.row.collapse
-      div.small-4.columns
-        div.results-label Automobile  
-      div.small-4.columns
-        div.results-label Public Transportation
-      div.small-4.columns
-        div.results-label Bike
-        
+div#results-ctrl(data-ng-controller="ResultsCtrl as results")
+  div(data-fx-arrow, data-direction="back")
+  div(data-ng-switch="results.trip.finished()")
+    div.spinner-wrp(data-ng-switch-when="false")
+      div.spinner
+        div.double-bounce1
+        div.double-bounce2
+    div.results.shadow.animate(data-ng-switch-when="true")
+      div.row.collapse
+        div.small-4.columns
+          div.results-label Automobile 
+          div#map-driving
+          div.results-time(data-ng-bind="results.trip.getTime('driving')")
+        div.small-4.columns
+          div.results-label Public Transportation
+          div#map-transit
+          div.results-time(data-ng-bind="results.trip.getTime('transit')")
+        div.small-4.columns
+          div.results-label Bike
+          div#map-bicycling
+          div.results-time(data-ng-bind="results.trip.getTime('bicycling')")
