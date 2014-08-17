@@ -12,7 +12,6 @@
                 maps: {
                     key: angular.element('#maps-key').text()
                 },
-                ownBike: false,
                 purpose: null,
                 location: {
                     start: {
@@ -33,14 +32,16 @@
                     ampm: 'pm' 
                 },
                 plans: {
-                    bicycling: {},
-                    driving: {},
-                    transit: {}
+                    'bicycling-share': {},
+                    'bicycling-own': {},
+                    'driving': {},
+                    'transit': {}
                 },
                 calculating: {
-                    bicycling: true,
-                    driving: true,
-                    transit: true
+                    'bicycling-share': true,
+                    'bicycling-own': true,
+                    'driving': true,
+                    'transit': true
                 }
             },
             geolocation = (function(n) {
@@ -96,8 +97,8 @@
         };
 
         service.finished = function() {
-            return !(service.calculating.bicycling || 
-                service.calculating.driving ||
+            return !(service.calculating['bicycling-own'] || 
+                service.calculating['bicycling-share'] ||
                 service.calculating.transit);
         };
 
@@ -111,15 +112,17 @@
                 arrive_by: service.getTimestamp()
             };
 
-            service.calculating.bicycling = true;
-            service.calculating.driving = true;
+            service.calculating['bicycling-own'] = true;
+            service.calculating['bicycling-share'] = true;
             service.calculating.transit = true;
 
-            _.each(['bicycling', 'driving', 'transit'], function(mode) {
+            _.each(['bicycling-own', 'bicycling-share', 'transit'], function(mode) {
                 var data = _.clone(baseData);
 
-                if (mode === 'bicycling') {
-                    data.mode = (service.ownBike) ? 'bike_owner' : 'bike_share';    
+                if (mode === 'bicycling-share') {
+                    data.mode = 'bike_share';  
+                } else if (mode === 'bicycling-own') {
+                    data.mode = 'bike_owner';  
                 } else {
                     data.mode = mode;
                 }

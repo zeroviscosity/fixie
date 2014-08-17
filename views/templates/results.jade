@@ -7,7 +7,7 @@ div#results-ctrl(data-ng-controller="ResultsCtrl as results")
         div.double-bounce2
     div.results.shadow.animate(data-ng-switch-when="true")
       div.row.collapse
-        div.small-4.columns
+        //div.small-4.columns
           div.results-label Automobile 
           div#map-driving
           div.results-time(data-ng-bind="results.trip.getTime('driving')")
@@ -16,6 +16,10 @@ div#results-ctrl(data-ng-controller="ResultsCtrl as results")
           div#map-transit
           div.results-time(data-ng-bind="results.trip.getTime('transit')")
         div.small-4.columns
-          div.results-label Bike
-          div#map-bicycling
-          div.results-time(data-ng-bind="results.trip.getTime('bicycling')")
+          div.results-label Bike Share
+          div#map-bicycling-share
+          div.results-time(data-ng-bind="results.trip.getTime('bicycling-share')")
+        div.small-4.columns
+          div.results-label Own Bike
+          div#map-bicycling-own
+          div.results-time(data-ng-bind="results.trip.getTime('bicycling-own')")

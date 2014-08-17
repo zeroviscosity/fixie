@@ -11,9 +11,9 @@
         
         this.trip = trip;          
         
-        angular.element('#map-driving').html('');
         angular.element('#map-transit').html('');
-        angular.element('#map-bicycling').html('');
+        angular.element('#map-bicycling-share').html('');
+        angular.element('#map-bicycling-own').html('');
         
         trip.calculate();
 
@@ -22,10 +22,10 @@
                 return;
             }
             $timeout(function() {
-                _.each(['driving', 'transit', 'bicycling'], function(mode) {
+                _.each(['transit', 'bicycling-share', 'bicycling-own'], function(mode) {
                     var el,
                         mapMode = (mode === 'transit' && !trip.plans[mode].time) ? 
-                            'walking' : mode;
+                            'walking' : mode.split('-')[0];
 
                     el = '<iframe frameborder="0" seamless src="https://www.google.com/maps/embed/v1/directions' +
                         '?key=' + trip.maps.key + 
