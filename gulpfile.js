@@ -7,11 +7,12 @@ var gulp = require('gulp'),
     paths = {
         libs: [
             'bower_components/jquery/dist/jquery.min.js',
-            'bower_components/angular/angular.js',
-            'bower_components/angular-animate/angular-animate.js',
-            'bower_components/angular-resource/angular-resource.js',
-            'bower_components/angular-route/angular-route.js',
-            'bower_components/angular-touch/angular-touch.js'
+            'bower_components/angular/angular.min.js',
+            'bower_components/angular-animate/angular-animate.min.js',
+            'bower_components/angular-resource/angular-resource.min.js',
+            'bower_components/angular-route/angular-route.min.js',
+            'bower_components/angular-touch/angular-touch.min.js',
+            'bower_components/lodash/dist/lodash.min.js'
         ],
         js: {
             backend: ['app.js', 'controllers/*.js'],

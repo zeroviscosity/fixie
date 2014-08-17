@@ -21,7 +21,7 @@ if (env === 'development') {
 }
 
 app.get('/', angular.app);
-app.get('/points', angular.app);
+app.get('/details', angular.app);
 app.get('/purpose', angular.app);
 app.get('/templates/:template.html', angular.template);
 app.get('/api/maps/location', maps.location);

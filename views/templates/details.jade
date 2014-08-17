@@ -1,0 +1,62 @@
+div#details-ctrl(data-ng-controller="DetailsCtrl as details")
+  div(data-fx-arrow, data-direction="back")
+  div.question-box.shadow
+    div.question-box-label Where are you going?
+    form(name="detailsForm", data-ng-submit="details.go()")
+      div.row.collapse
+        div.small-3.columns
+          span.prefix From:
+        div.small-9.columns
+          input#location-start.expand(type="text", name="start", 
+            placeholder="Start Point", data-ng-blur="startBlurred = true",
+            data-ng-model="details.trip.location.start", required)
+      div.animate(data-ng-show="detailsForm.start.$valid && startBlurred")
+        div.row.collapse
+          div.small-3.columns
+            span.prefix To:
+          div.small-9.columns
+            input#location-end.expand(type="text", name="end",
+              placeholder="End Point", data-ng-blur="endBlurred = true",
+              data-ng-model="details.trip.location.end", required)
+        div.animate(data-ng-show="detailsForm.end.$valid && endBlurred")  
+          div.row.collapse
+            div.small-3.columns
+              span.prefix Arrival:
+            div.small-9.columns
+              select(data-ng-model="details.trip.arrival.specificity",
+                data-ng-blur="specificityBlurred = true",
+                data-ng-change="details.checkSpecificity()")
+                option(value="none") Doesn't matter
+                option(value="exact") Exact
+                option(value="approximate") Approximate
+          div.animate(data-ng-switch="details.trip.arrival.specificity")
+            div.row.collapse(data-ng-switch-when="exact")
+              div.small-3.columns
+                span.prefix Time:
+              div.small-3.columns
+                select(data-ng-model="details.trip.arrival.hour")
+                  each i in hours
+                    option(value="#{i}")=i
+              div.small-3.columns
+                select(data-ng-model="details.trip.arrival.minute")
+                  each i in minutes
+                    option(value="#{i}") :#{i}
+              div.small-3.columns
+                select(data-ng-model="details.trip.arrival.ampm")
+                  option(value="am") am
+                  option(value="pm") pm
+            div.row.collapse(data-ng-switch-when="approximate")
+              div.small-3.columns
+                span.prefix Time:
+              div.small-3.columns
+                select(data-ng-model="details.trip.arrival.hour")
+                  each i in hours
+                    option(value="#{i}")=i
+              div.small-3.columns
+                select(data-ng-model="details.trip.arrival.minute")
+                  option(value="00") :00
+              div.small-3.columns
+                select(data-ng-model="details.trip.arrival.ampm")
+                  option(value="am") am
+                  option(value="pm") pm
+          input.button.primary.expand(type="submit", value="Go!")

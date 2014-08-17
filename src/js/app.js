@@ -8,8 +8,8 @@
             templateUrl: '/templates/purpose.html'
         }).when('/sample', {
             templateUrl: '/templates/sample.html'
-        }).when('/points', {
-            templateUrl: '/templates/points.html'
+        }).when('/details', {
+            templateUrl: '/templates/details.html'
         }).otherwise({
             redirectTo: '/purpose'
         });

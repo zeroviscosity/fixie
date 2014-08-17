@@ -8,8 +8,14 @@
             service = {
                 purpose: null,
                 location: {
-                    start: '220 King Street West, Toronto, ON, Canada',
-                    end: null
+                    start: '',
+                    end: ''
+                },
+                arrival: {
+                    specificity: 'none',
+                    hour: '12',
+                    minute: '00',
+                    ampm: 'pm'            
                 }
             },
             geolocation = (function(n) {

@@ -3,18 +3,27 @@
     
     var app = angular.module('app');
 
-    app.controller('PointsCtrl', function($window, trip) { 
+    app.controller('DetailsCtrl', function($window, trip) { 
         var autocomplete = {
                 start: null,
                 end: null
             },
             start = $window.document.getElementById('location-start'),
             end = $window.document.getElementById('location-end');
-        console.log(trip);
+        
         autocomplete.start = new $window.google.maps.places.Autocomplete(start);
         autocomplete.end = new $window.google.maps.places.Autocomplete(end);
 
         this.trip = trip;
-        setTimeout(function() { console.log(trip); }, 1000);
+        this.go = function() {
+            trip.location.start = start.value;
+            trip.location.end = end.value;
+            console.log(trip);
+        };
+        this.checkSpecificity = function() {
+            if (trip.arrival.specificity === 'approximate') {
+                trip.arrival.minute = '00';
+            }
+        };
     }); 
 })(window, window.angular);
