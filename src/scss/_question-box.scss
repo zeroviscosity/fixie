@@ -21,6 +21,9 @@
     border: solid $primary-color;
     border-width: rem-calc(1) 0 0;
   }
+  input[type="submit"] {
+    margin-bottom: 0;
+  }
   .button-group {
     width: 100%;
     li {

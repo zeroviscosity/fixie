@@ -3,7 +3,7 @@
     
     var app = angular.module('app');
 
-    app.controller('DetailsCtrl', function($window, trip) { 
+    app.controller('DetailsCtrl', function($window, $location, trip) { 
         var autocomplete = {
                 start: null,
                 end: null
@@ -18,7 +18,7 @@
         this.go = function() {
             trip.location.start = start.value;
             trip.location.end = end.value;
-            console.log(trip);
+            $location.path('/results');
         };
         this.checkSpecificity = function() {
             if (trip.arrival.specificity === 'approximate') {

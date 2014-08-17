@@ -1,0 +1,19 @@
+.results {
+  background: $body-bg;
+  margin: rem-calc(30) auto;
+  padding: rem-calc(20) rem-calc(30);
+  position: relative;
+  width: 95%;
+  .row {
+    max-width: none;
+  }
+  .results-label {
+    text-align: center;
+  }
+}
+
+@media #{$medium-up} {
+  .results {
+    width: 95%;
+  }
+}

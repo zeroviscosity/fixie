@@ -10,6 +10,8 @@
             templateUrl: '/templates/sample.html'
         }).when('/details', {
             templateUrl: '/templates/details.html'
+        }).when('/results', {
+            templateUrl: '/templates/results.html'
         }).otherwise({
             redirectTo: '/purpose'
         });

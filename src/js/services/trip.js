@@ -15,7 +15,7 @@
                     specificity: 'none',
                     hour: '12',
                     minute: '00',
-                    ampm: 'pm'            
+                    ampm: 'pm' 
                 }
             },
             geolocation = (function(n) {
@@ -35,6 +35,23 @@
                 });
             });
         }
+
+        service.getTimestamp = function() {
+            var d = new Date(),
+                h = _.parseInt(service.arrival.hour);
+            
+            if (service.arrival.ampm === 'am' && h === 12) {
+                h = 0;
+            } else if (service.arrival.ampm === 'pm' && h !== 12) {
+                h += 12;
+            }
+
+            d.setHours(h);
+            d.setMinutes(_.parseInt(service.arrival.minute));
+            d.setSeconds(0);
+
+            return d.getTime();
+        };
 
         return service;
     }]);
