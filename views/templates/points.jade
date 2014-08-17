@@ -4,6 +4,15 @@ div#points-ctrl(data-ng-controller="PointsCtrl as pts")
     div.question-box.shadow
       div.question-box-label Where are you going?
       div.question-box-options
-        input.expand(type="text", placeholder="Start Point", data-ng-model="pts.start")
-        input.expand(type="text", placeholder="End Point", data-ng-model="pts.end")
-        button.primary.expand(data-ng-click="pts.go()") Go!
+        div.row.collapse
+          div.small-2.columns
+            span.prefix From:
+          div.small-10.columns
+            input#location-start.expand(type="text", placeholder="Start Point", 
+              data-ng-model="pts.trip.location.start")
+        div.row.collapse
+          div.small-2.columns
+            span.prefix To:
+          div.small-10.columns
+            input#location-end.expand(type="text", placeholder="End Point", 
+              data-ng-model="pts.trip.location.end")

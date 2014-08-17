@@ -3,15 +3,18 @@
     
     var app = angular.module('app');
 
-    app.controller('PointsCtrl', function(trip) { 
-        var self = this;        
+    app.controller('PointsCtrl', function($window, trip) { 
+        var autocomplete = {
+                start: null,
+                end: null
+            },
+            start = $window.document.getElementById('location-start'),
+            end = $window.document.getElementById('location-end');
+        console.log(trip);
+        autocomplete.start = new $window.google.maps.places.Autocomplete(start);
+        autocomplete.end = new $window.google.maps.places.Autocomplete(end);
 
-        self.start = '';
-        self.end = '';
-
-        self.go = function() {
-            trip.start = self.start;
-            trip.end = self.end;
-        };
+        this.trip = trip;
+        setTimeout(function() { console.log(trip); }, 1000);
     }); 
 })(window, window.angular);

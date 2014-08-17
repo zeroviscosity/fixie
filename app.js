@@ -1,6 +1,7 @@
 var express = require('express'),
     logger = require('morgan'),
     angular = require('./controllers/angular'),
+    maps = require('./controllers/maps'),
     app = express(),
     port = process.env.NODE_PORT || 3000,
     env = process.env.NODE_ENV || 'development';
@@ -23,6 +24,7 @@ app.get('/', angular.app);
 app.get('/points', angular.app);
 app.get('/purpose', angular.app);
 app.get('/templates/:template.html', angular.template);
+app.get('/api/maps/location', maps.location);
 
 app.listen(port, function() {
     console.log('Listening on port', port);

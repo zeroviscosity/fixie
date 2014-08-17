@@ -5,9 +5,11 @@ var gulp = require('gulp'),
     nodemon = require('gulp-nodemon'),
     jshint = require('gulp-jshint'),
     paths = {
-        angular: [
+        libs: [
+            'bower_components/jquery/dist/jquery.min.js',
             'bower_components/angular/angular.js',
             'bower_components/angular-animate/angular-animate.js',
+            'bower_components/angular-resource/angular-resource.js',
             'bower_components/angular-route/angular-route.js',
             'bower_components/angular-touch/angular-touch.js'
         ],
@@ -37,11 +39,11 @@ gulp.task('lint', function () {
 });
 
 gulp.task('js', function() {
-    gulp.src(paths.angular)
-        .pipe(concat('angular.js', { newLine: ';' }))
+    gulp.src(paths.libs)
+        .pipe(concat('libs.js', { newLine: ';\n' }))
         .pipe(gulp.dest(paths.dest.js));
     gulp.src(paths.js.frontend)
-        .pipe(concat('app.js', { newLine: ';' }))
+        .pipe(concat('app.js', { newLine: ';\n' }))
         .pipe(gulp.dest(paths.dest.js));
 });
 

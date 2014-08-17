@@ -1,7 +1,7 @@
 (function(window, angular) {
     'use strict';
 
-    var app = angular.module('app', ['ngAnimate', 'ngRoute', 'ngTouch']);
+    var app = angular.module('app', ['ngAnimate', 'ngResource', 'ngRoute', 'ngTouch']);
     
     app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
         $routeProvider.when('/purpose', {
